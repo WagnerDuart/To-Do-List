@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './styles.css';
 
@@ -14,16 +13,18 @@ function App() {
   };
 
   return (
-    <div className="container">
+      <>
+      <div className="background-image"></div>
+      <div className="container">
       <div className="header">
         <h1>Todo List React JS</h1>
         <div>
           <input
             type="text"
+            id="newTaskInput"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Tarefa"
-          />
+            placeholder="Tarefa" />
           <button onClick={addTask} disabled={!newTask.trim()}>
             ADICIONAR
           </button>
@@ -36,7 +37,8 @@ function App() {
           ))}
         </ul>
       </div>
-    </div>
+    </div></>
+  
   );
 }
 
