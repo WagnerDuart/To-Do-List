@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles.css';
+import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -18,6 +18,7 @@ function App() {
     setTasks(updatedTasks);
   };
 
+
   return (
     <>
       <div className="background-image"></div>
@@ -32,7 +33,7 @@ function App() {
               onChange={(e) => setNewTask(e.target.value)}
               placeholder="Tarefa"
             />
-            <button onClick={addTask} disabled={!newTask.trim()}>
+            <button className="add-button" onClick={addTask} >
               ADICIONAR
             </button>
           </div>
@@ -40,11 +41,13 @@ function App() {
         <div className="task-list">
           <ul>
              {tasks.map((task, index) => (
-              <li key={index}>
-                {task}
-                <button className="delete-button" onClick={() => deleteTask(index)}>
-                  <img id='icon' src="https://cdn-icons-png.flaticon.com/256/54/54324.png" alt="lixeira" />
-                </button>
+              <li key={index} >
+                {task}  
+                <div className="container-button">
+                  <button className="delete-button" onClick={() => deleteTask(index)}>
+                    <img id='icon-delet' src="https://cdn-icons-png.flaticon.com/256/54/54324.png" alt="lixeira" />
+                  </button>
+                </div>        
               </li>
             ))}
           </ul>
