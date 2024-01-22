@@ -8,7 +8,8 @@ function App() {
   const [editMode, setEditMode] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
+  const [showAlert, setShowAlert] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
 
 
   const addTask = () => {
@@ -24,6 +25,8 @@ function App() {
         setTasks([...tasks, newTask]);
       }
       setNewTask('');
+    }else{
+      setShowAlert(true);
     }
   };
 
@@ -102,6 +105,27 @@ function App() {
             </div>
           </div>
         )}
+        {showAlert && (
+          <div className="alert-modal-overlay">
+            <div className="alert-modal">
+
+
+              <span className="close" >
+                <img title="Fechar" className='icon-X'src="https://cdn-icons-png.flaticon.com/128/54/54972.png" alt="Fechar" onClick={() => setShowAlert(false)}/>
+              </span>
+
+
+              <img id="img-alert" src="https://cdn-icons-png.flaticon.com/128/4418/4418877.png" alt="Alerta" />
+              <p>O campo de entrada está vazio. Por favor, insira uma tarefa.</p>
+
+
+              <button id="button-alert-close" onClick={() => setShowAlert(false)}>
+                  Ok
+              </button>
+               
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
@@ -109,6 +133,3 @@ function App() {
 
 
 export default App;
-
-
-
