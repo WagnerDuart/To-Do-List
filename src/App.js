@@ -85,7 +85,7 @@ function App() {
           <div className="edit-modal-overlay">
             <div className="edit-modal">
               <span className="close" >
-                <img title="Fechar" className='icon-X' src="https://cdn-icons-png.flaticon.com/128/54/54972.png" alt="Fechar" onClick={() => setShowModal(false)}/>
+              <img title="Fechar" className='icon-X' src="https://cdn-icons-png.flaticon.com/128/54/54972.png" alt="Fechar" onClick={() => {setShowModal(false);setNewTask('')}}/>
               </span>
               <div className="container-title">
                 <h3>Editando Tarefa</h3>
